@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main</title>
+  </head>
+  <body>
+    <div id="main">
+      <div>
+        <a href="/otp"><button>OTP</button></a>
+        <span th:if="${otp}" th:text="'OTP is : '+${otp}"></span>
+      </div>
+      <br />
+      <div>
+        <a href="/toss"><button>Toss</button></a>
+        <span
+          th:if="${toss}"
+          th:text="'Coin Tossed and it is : '+${toss}"
+        ></span>
+      </div>
+      <br />
+      <div>
+        <a href="/random-color"><button>Random Color</button></a>
+        <br />
+        <div
+          th:if="${color}"
+          th:style="'height: 100px;width: 100px;border: 2px solid black;background-color: '+${color}"
+        ></div>
+      </div>
+      <br />
+      <div>
+        <form action="/wish">
+          <input type="text" name="message" placeholder="Enter Message" />
+          <input type="color" name="color" />
+          <button>Done</button>
+          <input
+            th:if="${message}"
+            th:style="'color:'+${color1}"
+            th:value="${message}"
+            type="text"
+          />
+        </form>
+      </div>
+<br><br>
+      <div style="border: 2px solid black;">
+        <form action="/calci">
+          <input th:value="${num1}" type="number" name="num1" />
+          <input th:value="${num2}" type="number" name="num2" />
+          <br />
+          <button name="operation" value="add">+</button>
+          <button name="operation" value="sub">-</button>
+          <button name="operation" value="mul">X</button>
+          <button name="operation" value="div">/</button>
+        </form>
+        <input type="text" th:value="${ans}" name="answer" >
+      </div>
+    </div>
+  </body>
+</html>
